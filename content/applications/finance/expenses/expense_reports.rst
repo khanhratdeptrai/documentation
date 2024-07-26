@@ -121,6 +121,18 @@ Click on a report to open it, then click :guilabel:`Submit To Manager`. After su
 the next step is to wait for the manager to approve it.
 
 .. important::
+<<<<<<< saas-17.1
    :doc:`Approving <../expenses/approve_expenses>`, :doc:`posting <../expenses/post_expenses>`, and
    :ref:`reimbursing <expenses/reimburse>` expenses are **only** for users with the appropriate
    :doc:`access rights <../../general/users/access_rights>`.
+||||||| 9dc985ef47ddf3244cec897d64e3b0ac07c56f51
+   :doc:`Approving <../expenses/approve_expenses>` expenses, :doc:`posting
+   <../expenses/post_expenses>` expenses, and :ref:`reimbursing <expenses/reimburse>` expenses are
+   **only** for users with the appropriate :doc:`access rights documentation
+   </applications/general/users>`.
+=======
+   :doc:`Approving <../expenses/approve_expenses>` expenses, :doc:`posting
+   <../expenses/post_expenses>` expenses, and :doc:`reimbursing <../expenses/reimburse>` expenses
+   are **only** for users with the appropriate :doc:`access rights documentation
+   </applications/general/users>`.
+>>>>>>> 1cdf7714640139577d04e4d67ec5c3a5b59b0894
