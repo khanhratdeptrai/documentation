@@ -14,6 +14,11 @@ Workflows
    workflows/split_merge
    workflows/unbuild_orders
    workflows/byproducts
-   workflows/allocation
    workflows/continuous_improvement
+<<<<<<< saas-17.2
    workflows/oee
+||||||| 10ccd5c3c54de31c621d8192fd776208f9a0a9c3
+   workflows/oee
+   workflows/production_analysis
+=======
+>>>>>>> 73508e344f23d2173449277589efdfbd83f77555
