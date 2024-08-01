@@ -82,27 +82,184 @@ Costing method
 
 From the product category's configuration page, choose the desired :guilabel:`Costing Method`:
 
-- :guilabel:`Standard Price`: the default costing method in Odoo. The cost of the product is
-  manually defined on the product form, and this cost is used to compute the valuation. Even if the
-  purchase price on a purchase order differs, the valuation will still use the cost defined on the
-  product form.
-- :guilabel:`Average Cost (AVCO)`: calculates the valuation of a product based on the average cost
-  of that product, divided by the total number of available stock on-hand. With this costing method,
-  inventory valuation is *dynamic*, and constantly adjusts based on the purchase price of products.
 
-  .. note::
-     When choosing :guilabel:`Average Cost (AVCO)` as the :guilabel:`Costing Method`, changing the
-     numerical value in the :guilabel:`Cost` field for products in the respective product category
-     creates a new record in the *Inventory Valuation* report to adjust the value of the product.
-     The :guilabel:`Cost` amount will then automatically update based on the average purchase price
-     both of inventory on hand and the costs accumulated from validated purchase orders.
+.. tabs::
 
-- :guilabel:`First In First Out (FIFO)`: tracks the costs of incoming and outgoing items in
-  real-time and uses the real price of the products to change the valuation. The oldest purchase
-  price is used as the cost for the next good sold until an entire lot of that product is sold. When
-  the next inventory lot moves up in the queue, an updated product cost is used based on the
-  valuation of that specific lot. This method is arguably the most accurate inventory valuation
-  method for a variety of reasons, however, it is highly sensitive to input data and human error.
+   .. tab:: Standard Price
+
+      The default costing method in Odoo. The cost of the product is manually defined on the product
+      form, and this cost is used to compute the valuation. Even if the purchase price on a purchase
+      order differs, the valuation will still use the cost defined on the product form.
+
+      .. list-table::
+         :header-rows: 1
+         :stub-columns: 1
+
+         * - Operation
+           - Unit Cost
+           - Qty On Hand
+           - Incoming Value
+           - Inventory Value
+         * -
+           - $10
+           - 0
+           -
+           - $0
+         * - Receive 8 products for $10/unit
+           - $10
+           - 8
+           - 8 * $10
+           - $80
+         * - Receive 4 products for $16/unit
+           - $10
+           - 12
+           - 4 * $10
+           - $120
+         * - Deliver 10 products
+           - $10
+           - 2
+           - -10 * $10
+           - $20
+         * - Receive 2 products for $9/unit
+           - $10
+           - 4
+           - 2 * $10
+           - $40
+
+   .. tab:: Average Cost (AVCO)
+
+      Calculates the valuation of a product based on the average cost of that product, divided by
+      the total number of available stock on-hand. With this costing method, inventory valuation is
+      *dynamic*, and constantly adjusts based on the purchase price of products.
+
+      .. list-table::
+         :header-rows: 1
+         :stub-columns: 1
+
+         * - Operation
+           - Unit Cost
+           - Qty On Hand
+           - Incoming Value
+           - Inventory Value
+         * -
+           - $0
+           - 0
+           -
+           - $0
+         * - Receive 8 products for $10/unit
+           - $10
+           - 8
+           - 8 * $10
+           - $80
+         * - Receive 4 products for $16/unit
+           - $12
+           - 12
+           - 4 * $16
+           - $144
+         * - Deliver 10 products
+           - $12
+           - 2
+           - -10 * $12
+           - $24
+         * - Receive 2 products for $6/unit
+           - $9
+           - 4
+           - 2 * $6
+           - $36
+
+      .. spoiler:: How are Unit Cost and Inventory Value calculated at each step?
+
+         - When receiving four products for $16 each:
+
+           - **Inventory Value** is calculated by adding the previous inventory value with the
+             incoming value. So, with `$80 + (4 * $16)` = `$80 + $64` = `$144`.
+           - **Unit Cost** is calculated by dividing the inventory value by the quantity on hand.
+             So, `$144 / 12 = $12`.
+
+         - When delivering ten products, the average **Unit Cost** is used to calculate the
+           **Inventory Value**, regardless of the purchase price of the product. Therefore,
+           inventory value is `$144 + (-10 * $12)` = `$144 - $120` = `$24`
+
+         - Receive two products for $6 each:
+
+           - **Inventory Value**: `$24 + (2 * $6)` = `$24 + $12` = `$36`
+           - **Unit Cost**: `$36 / 4 = $9`
+
+      .. note::
+         When choosing :guilabel:`Average Cost (AVCO)` as the :guilabel:`Costing Method`, changing
+         the numerical value in the :guilabel:`Cost` field for products in the respective product
+         category creates a new record in the *Inventory Valuation* report to adjust the value of
+         the product. The :guilabel:`Cost` amount will then automatically update based on the
+         average purchase price both of inventory on hand and the costs accumulated from validated
+         purchase orders.
+
+   .. tab:: First In First Out (FIFO)
+
+      Tracks the costs of incoming and outgoing items in real-time and uses the real price of the
+      products to change the valuation. The oldest purchase price is used as the cost for the next
+      good sold until an entire lot of that product is sold. When the next inventory lot moves up in
+      the queue, an updated product cost is used based on the valuation of that specific lot.
+
+      This method is arguably the most accurate inventory valuation method for a variety of reasons,
+      but, it is highly sensitive to input data and human error.
+
+      .. list-table::
+         :header-rows: 1
+         :stub-columns: 1
+
+         * - Operation
+           - Unit Cost
+           - Qty On Hand
+           - Incoming Value
+           - Inventory Value
+         * -
+           - $0
+           - 0
+           -
+           - $0
+         * - Receive 8 products for $10/unit
+           - $10
+           - 8
+           - 8 * $10
+           - $80
+         * - Receive 4 products for $16/unit
+           - $12
+           - 12
+           - 4 * $16
+           - $144
+         * - Deliver 10 products
+           - $16
+           - 2
+           - | -8 * $10
+             | -2 * $16
+           - $32
+         * - Receive 2 products for $6/unit
+           - $11
+           - 4
+           - 2 * $6
+           - $44
+
+      .. spoiler:: How are Unit Cost and Inventory Value calculated at each step?
+
+         - When receiving four products for $16 each (process is similar to the average costing
+           method in this step):
+
+           - **Inventory Value** is calculated by adding the previous inventory value to the
+             incoming value. So, with `$80 + (4 * $16)` = `$80 + $64` = `$144`.
+           - **Unit Cost** is calculated by dividing the inventory value by the quantity on hand.
+             So, `$144 / 12 = $12`.
+
+         - When delivering ten products, eight units were purchased for $10, and two units were
+           purchased for $16.
+
+           - First, the **Incoming Value** is calculated by multiplying the on-hand quantity by the
+             purchased price. `(-8 * $10) + (-2 * $16)` = `-80 + -32` = `-112`.
+           - The **Inventory Value** is calculated by subtracting the incoming value from the
+             previous inventory value: `$144 - $112 = $32`.
+           - **Unit Cost**: inventory value / remaining quantity = `$32 / 2` = `$16`.
+
+         - When receiving two products for $6, **Inventory Value** is `$32 + $12 = $44`. **Unit
+           Cost** is `$44 / 4 = $11`.
 
 .. warning::
    Changing the costing method greatly impacts inventory valuation. It is highly recommended to
