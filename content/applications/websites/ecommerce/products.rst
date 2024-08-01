@@ -4,192 +4,257 @@
 Products
 ========
 
-Odoo allows you to create, import, and manage your products' pages all within the **Website** app.
+**Odoo eCommerce** allows you to :ref:`create <products/create-products>`,
+:ref:`import <products/import-products>`, and manage your :ref:`product pages
+<products/product-pages>` directly within the Website app. You can also add
+:ref:`product variants <products/product-variants>` and
+:ref:`digital files <products/digital-files>`, enable
+:ref:`product comparisons <products/product-comparison>`, :ref:`translate <products/translation>`
+your product page content, and :ref:`manage your stock <products/stock-management>`.
 
-Add products to the catalog
-===========================
+Add products
+============
 
-To add a product to your catalog, you can either do it in:
+.. _products/create-products:
 
-- From anywhere on your website, click :menuselection:`+ New --> Product`. Enter the name of your
-  product, and :guilabel:`Save`;
-- :menuselection:`Website --> eCommerce --> Products --> Create`;
-- or by :ref:`importing data <import-data>` using XLSX or CSV files. To do so, go to
-  :menuselection:`Website --> eCommerce --> Products`. Click on :guilabel:`Favorites` and
-  :ref:`Import records <import-data>`.
+Create products
+---------------
 
-.. seealso::
-   - :doc:`products/catalog`
-   - :doc:`../../sales/sales/products_prices/products/import`
-   - :doc:`Product-related documentation <../../sales/sales>`
-
-Publish
--------
-
-Upon creation, products are defaulted as :guilabel:`Unpublished` in your eCommerce catalog. To make
-a product visible to visitors, go to :menuselection:`Website --> Site --> Homepage`, click on your
-**main shop** page, select the product, and enable it as :guilabel:`Published` in the top-right
-corner.
+From anywhere on your website, click :guilabel:`+ New`, then :guilabel:`Product`. Enter the
+:guilabel:`Product Name`, :guilabel:`Sales Price`, and the default :guilabel:`Customer Taxes` for
+local transactions, then :guilabel:`Save`. You can then update the product details, add an image,
+and :ref:`customize <products/customization>` the product page. When you :guilabel:`Save` your
+changes, your product page is automatically published.
 
 .. tip::
-   To publish **large batches** of products, the most convenient fashion is to go to
-   :menuselection:`Website --> eCommerce --> Products`. Here, remove the :guilabel:`Published`
-   filter by clicking on the :guilabel:`x` right to it, and then select the :guilabel:`List` view.
-   Next, click the :guilabel:`dropdown toggle` button (located right below the :guilabel:`List`
-   button) and enable :guilabel:`Is published`. Click the :guilabel:`Is Published` column to
-   re-order it either by **published** or **unpublished** products. Finally, select the products to
-   publish by ticking their box on the extreme-right, and tick any box of the selected products in
-   the :guilabel:`Is Published` column to publish them all.
+   - You can also create a product from the backend by going to :menuselection:`Website -->
+     eCommerce --> Products` and clicking :guilabel:`New`.
+   - Products created from the frontend are automatically **published**, while products created from
+     the backend are not. To publish a product created backend, go to your main shop page, select
+     the product, and toggle the switch from :guilabel:`Unpublished` to :guilabel:`Published`.
 
-.. image:: products/products-buttons.png
-   :align: center
-   :alt: List and dropdown toggle buttons
+.. _products/import-products:
 
-Product page design
-===================
+Import products
+---------------
 
-Once a product is created, you can access its **product page** through the :guilabel:`Shop` page by
-clicking on the product, and then clicking :guilabel:`Edit`. Here, you can change the page's
-**additional functions**, **layout**, **add content**, etc. Note that **enabled functions** apply to
-*all* product pages.
+You can :ref:`import products data <import-data>` using XLSX or CSV files. To do so, go to
+:menuselection:`Website --> eCommerce --> Products`, click on the :icon:`fa-cog` (:guilabel:`cog`)
+icon and :ref:`Import records <import-data>`.
 
-.. _ecommerce-functions:
+.. _products/product-pages:
 
-Additional functions
---------------------
+Product page
+============
 
-In the **website builder** window, click :guilabel:`Customize` to enable additional functions:
+Once a product is created, you can access its page by going to your :guilabel:`Shop` and clicking on
+the product. Click :guilabel:`Edit` to :ref:`customize <products/customization>` the page, or edit
+its :ref:`layout <products/layout>` or content.
 
-- :guilabel:`Customers: Rating` allows customers to submit :ref:`product reviews <product-reviews>`;
-  :guilabel:`Share` adds social media and email icon buttons to share the product via those
-  channels;
-- :guilabel:`Select Quantity`: if enabled, allows to choose the quantity added to cart;
-- :guilabel:`Tax Indication`: notifies if the price is **VAT included** or **excluded**;
-- :guilabel:`Variants`: shows all possible
-  :doc:`variants </applications/sales/sales/products_prices/products/variants>` of the product as a
-  :guilabel:`Products List`; :guilabel:`Options` as selectable options to compose the variant
-  yourself;
-- :guilabel:`Cart`: :guilabel:`Buy Now` adds a :ref:`checkout button <cart/buy-now>` taking the
-  customer directly to the checkout page; :guilabel:`Wishlist` allows to add the product to a
-  wishlist;
-- :guilabel:`Specification`: allows you to select where the :guilabel:`Specifications` section is
-  displayed. This option displays a list of all variant attributes and values of a product, but only
-  works for products *with* variants.
+.. _products/product-form:
+
+From your product page, you can click the :icon:`fa-cog` :guilabel:`Product` smart button in the top
+right corner of the page to access the backend **product form**. You can also access the
+**product form** by going to :menuselection:`Website --> eCommerce --> Products` and selecting your
+product. From there, you can customize your product page by adding :ref:`products variants
+<products/product-variants>` or :ref:`digital documents <products/digital-files>`, or by
+:ref:`translating <products/translation>` the product page content.
+
+.. _products/customization:
+
+Customization
+-------------
+
+To customize a product page, go to your shop's homepage, select the product, and click
+:guilabel:`Edit`. Go to the :guilabel:`Blocks` tab to add :doc:`building blocks
+<../../websites/website/web_design/building_blocks>` to your product page or to the
+:guilabel:`Customize` tab to modify the page layout or add features:
+
+:guilabel:`Terms and Conditions`: toggle the switch to apply them to your product page.
+
+:guilabel:`Customers`:
+
+   - :guilabel:`Rating` allows customers to submit product reviews. Only logged-in portal users can
+     leave ratings. You can restrict the review to internal employees only by toggling the
+     :guilabel:`Public` switch next to a review comment.
+   - :guilabel:`Share` adds social media and email icon buttons to share the product via those
+     channels.
+
+:guilabel:`Select Quantity`: toggle the switch to allow users to select the quantity they want for
+your product.
+
+:guilabel:`Tax indication`: toggle the switch to indicate if the price is VAT included or excluded.
+
+:guilabel:`Variants`: show all possible :ref:`variants <products/product-variants>` of the product
+as :guilabel:`Products List` or as selectable :guilabel:`Options` to compose the variant yourself.
+
+:guilabel:`Product Tags`: toggle the switch to display the :guilabel:`Product Template Tags` on your
+eCommerce, enabling product filtering by tags.
+
+:guilabel:`Cart`:
+
+- :guilabel:`Buy Now`: adds a checkout button taking the customer directly to the checkout page.
+- :guilabel:`Wishlist`: allow signed-in users to save products in a wishlist.
+- :guilabel:`Compare`: to allow shoppers to :ref:`compare products <products/product-comparison>`
+  based on their attributes.
+
+:guilabel:`Specification`: Select :guilabel:`Bottom of Page` to display the specifications at the
+bottom of your product’s page. This option shows a list of all the product's variants, attributes
+and values, and it only works for products with :ref:`variants <products/product-variants>`.
 
 .. note::
-   - To allow **wishlists**, the option must be enabled in :menuselection:`Website --> Configuration
-     --> Settings --> Shop - Products`;
-   - To access the :guilabel:`Variants` options, the :doc:`Product Variants
-     <../../sales/sales/products_prices/products/variants>` option must first be enabled under
-     :menuselection:`Website --> Configuration --> Settings --> Shop - Products`.
+   - To allow :guilabel:`Wishlists`, the :guilabel:`Product Comparison` tool, and the
+     :guilabel:`Product Variants`, the options must be enabled in :menuselection:`Website -->
+     Configuration --> Settings --> Shop - Products`.
+   - Enabled functions apply to all product pages.
+
+.. _products/layout:
 
 Layout
 ------
 
-Within the same :guilabel:`Customize` tab as the :ref:`functions <ecommerce-functions>`, the layout
-configuration can be changed according to your needs.
+The layout configuration can be changed according to your needs from the :guilabel:`Customize` tab:
 
-- :guilabel:`Images Width`: changes the width of the product images displayed on the page;
+- :guilabel:`Images Width`: changes the width of the product images displayed on the page.
 - :guilabel:`Layout`: the :guilabel:`Carousel` layout displays a large, main image with smaller ones
-  underneath; whereas the :guilabel:`Grid` displays four images in a square layout (see pictures
-  below);
-- :guilabel:`Image Zoom`: choose which image zooms are available, either
-  :guilabel:`Pop-up on Click`, when hovering over the image (:guilabel:`Magnifier on hover`), on
-  :guilabel:`Both`, or :guilabel:`None`;
+  underneath; whereas the :guilabel:`Grid` displays four images in a square layout.
+- :guilabel:`Image Zoom`: choose which image zooms are available, either :guilabel:`Magnifier on hover`
+  :guilabel:`Pop-up on Click`, on :guilabel:`Both`, or :guilabel:`None`.
 - :guilabel:`Thumbnails`: decide how the thumbnails should be aligned, either **vertically**
-  (:guilabel:`Left`), or **horizontally** (:guilabel:`Right`);
+  (:guilabel:`Left`), or **horizontally** (:guilabel:`Right`).
 - :guilabel:`Main Image`: click :guilabel:`Replace` to change the product's main image;
 - :guilabel:`Extra Images`: click :guilabel:`Add` or :guilabel:`Remove all` to add or remove extra
   product images. You can also add images and videos via **URL**.
 
 .. note::
-   Images must either be in PNG or JPG format. To trigger the zoom, the image has to be bigger than
-   1024x1024.
+   Images must be in PNG or JPG format and must be bigger than 1024x1024 to trigger the zoom.
 
-.. image:: products/products-layout.png
-   :align: center
-   :alt: Product images layout
+.. tip::
+   When dragging and dropping a building block on your product page, placing it below the blue line
+   makes it visible on all product pages, while placing it above the blue line makes it visible only
+   on that specific product page.
 
-Add content
------------
+.. _products/product-variants:
 
-You can use **building blocks** (:menuselection:`Edit --> Blocks`) to add content to your product
-page. These blocks can be used to add extra text and picture galleries, features such as
-:guilabel:`Call to Actions`, :guilabel:`Comparisons`, etc.
+Product variants
+================
 
-Depending on *where* you drop the **building block**, it may be available either on the product page
-*only*, or on the *whole* website. **Building blocks** dropped at the very top or very bottom of the
-page are available on the *whole* website, where **building blocks** put underneath the product
-description are only displayed on the *product* page *(see image below)*.
+Product variants are different versions of the same product, such as various colors or materials,
+with possibly different prices and availability.
 
-.. image:: products/products-blocks.png
-   :align: center
-   :alt: Building blocks on product page
+Go to :menuselection:`Website --> Configuration --> Settings --> Shop - Products` to enable
+:guilabel:`Product Variants`. The :guilabel:`Attributes & Variants` tab is now available in the
+:ref:`product forms <products/product-form>`. From there, you can add attributes and values to allow
+customers to configure and select product variants on the product page. For multiple attributes, you
+can combine them to create specific variants.
 
-Download link
--------------
+.. image:: products/attributes-and-variants.png
+   :alt: attributes and variants tab in the product form.
 
-To add a downloadable file (ex.: user's manual, notice of use, etc.) on the product page, drag and
-drop a :guilabel:`Text` block from :menuselection:`Edit --> Blocks` on the page. Once placed, click
-within the :guilabel:`Text` block, and under the :guilabel:`Inline Text` section, select either
-:menuselection:`Insert Media --> Documents` or :guilabel:`Insert or edit link` and enter the URL in
-the :guilabel:`Your URL` field.
+Display type
+------------
+
+To modify the display of the attributes on your product page, select them, go to the website editor,
+and to the :guilabel:`Customize` tab. In the :guilabel:`Block` section, select your preferred
+:guilabel:`Display Type`: :guilabel:`Radio`, :guilabel:`Pills`, :guilabel:`Select`, or
+:guilabel:`Color`.
+
+Alternatively, the :guilabel:`Display Type` can be edited through :menuselection:`Website -->
+eCommerce --> Attributes`, selecting an attribute, and then choosing a :guilabel:`Display Type`; or
+through the :ref:`product form <products/product-form>`, by going to the
+:guilabel:`Attributes & Variants` tab.
 
 .. note::
-   The difference with :ref:`digital files <ecommerce-digital-file>` is that digital files can only
-   be downloaded *after* checkout.
+   Specific combinations of values can be excluded from the product configurator, so customers are
+   unable to select them. To do so, go to :menuselection:`Website --> eCommerce --> Products`,
+   select a product, and go to :guilabel:`Attributes & Variants`. Then, click on an attribute,
+   select a value, and in the exclude for section, select a Product Template and the
+   Attribute Values to exclude.
 
-.. image:: products/products-media.png
-   :align: center
-   :alt: Media and link buttons
+Product specifications
+----------------------
 
-.. _ecommerce-digital-file:
+You can display your product's attributes at the bottom of the product page by going to the website
+editor, :guilabel:`Customize` tab and to :guilabel:`Specification`, and selecting
+:guilabel:`Bottom of Page`.
+
+.. tip::
+   Products with single values for their attributes do not generate variants but are still displayed
+   in the :guilabel:`Product Specifications`.
+
+.. image:: products/specifications.png
+   :alt: specifications grid
+
+Filter catalog by attributes
+----------------------------
+
+Customers can filter the catalog based on product attributes and values, allowing them to filter the catalog based only on the attribute(s) of their choice.
+To enable attribute filtering, go to Edit ‣ Customize from your main shop page and click on one of the Categories in the left column. Here, enable either Left, Top, or both, in the Attributes field.
+
+.. _products/digital-files:
 
 Digital files
--------------
+=============
 
-Should your product be sold with a certificate, manual user, or any other relevant document, it is
-possible to add a download link for customers at the end of the checkout. To do that, first enable
-:guilabel:`Digital Content` under :menuselection:`Website --> Configuration --> Settings --> Shop -
-Checkout Process`. Then, on the **product's template**, click on :menuselection:`More --> Digital
-Files` and :guilabel:`Create` a new file.
+You can add digital files like certificates, eBooks, or manual users to your product page. These
+documents are available :ref:`before payment <products/before-payment>` on the product page or
+:ref:`after checkout <products/after-payment>` on the customer portal.
 
-.. image:: products/products-digital-files.png
-   :align: center
-   :alt: Digital Files menu
+You can add a digital file to your product page from the :ref:`product form <products/product-form>`
+go to :menuselection:`Website --> eCommerce --> Products`, and select your product. Then,
 
-For the configuration:
+#. Click the :guilabel:`Documents` smart button;
+#. Click :guilabel:`NEW`;
+#. Click :guilabel:`Upload your file`.
 
-- :guilabel:`Name`: the name of your file;
-- :guilabel:`Type:` select if it is either a **file** or a **URL**. Accordingly, you either have a
-  :guilabel:`File Content (base64)` field to upload your file, or a :guilabel:`URL` field to enter
-  your URL.
-- :guilabel:`Website`: the website on which that file is *available*. If you want it available for
-  *all* websites, leave it empty.
+The :guilabel:`Name` field is automatically filled with the name of the uploaded file's. You  can
+change it once you've uploaded the file.
 
-The file is then available after checkout in the :guilabel:`Sales Orders` section, found on the
-customer's portal.
+.. tip::
 
-Product configuration
-=====================
+   To edit an existing file, go to the :ref:`product form <products/product-form>`, click the
+   :guilabel:`Documents` smart button, then the vertical ellipsis on the product card, and
+   :guilabel:`edit`.
 
-Multiple languages
-------------------
+.. _products/before-payment:
 
-If multiple languages are available on your website and you wish to have the product's information
-translated, it is necessary to encode this translated information in the **product's template**.
-Fields with multiple languages available are identifiable by their abbreviation language (ex.
-:abbr:`EN (English)`) next to their field.
+Digital files available before payment
+--------------------------------------
+
+Make sure the :guilabel:`Sale: Visible at` field is set to :guilabel:`Hidden`, and check the
+:guilabel:`Show on product` page box in the :guilabel:`E-Commerce` section. The digital file is now
+available on the product page.
+
+.. image:: digital-files.png
+   :alt: digital file available before payment on the  product page
+
+.. _products/after-payment:
+
+Digital files available after payment
+-------------------------------------
+
+In the :guilabel:`Sales` section, go to :guilabel:`Sale: Visible at` and select :guilabel:`Confirmed
+Order` from the dropdown list. The file is then available after checkout in the
+:guilabel:`Sales Orders` section on the customer's portal.
+
+.. _products/translation:
+
+Translation
+===========
+
+If multiple languages are available on your website and you want to translate a product's
+information, go to the product form to enter the translated information in the related fields.
+Fields that support multiple languages are identifiable by their abbreviation language (e.g., EN)
+next to their field.
 
 .. image:: products/products-field-translation.png
    :align: center
    :alt: Field translation
 
-The **eCommerce-related** fields to translate are:
-
-- :guilabel:`Product name`;
-- :guilabel:`Out-of-Stock Message` (under the :guilabel:`Sales` tab);
-- :guilabel:`Sales Description` (under the :guilabel:`Sales` tab);
+The eCommerce-related fields to translate are:
+#. Product name;
+#. Out-of-Stock Message (under the :guilabel:`Sales` tab);
+#. Sales Description (under the :guilabel:`Sales` tab).
 
 .. note::
    Having untranslated content on a web page may be detrimental to the user experience and
@@ -198,63 +263,48 @@ The **eCommerce-related** fields to translate are:
    To check the language(s) of your website, go to :menuselection:`Website --> Configuration -->
    Settings --> Website Info section`.
 
-.. seealso::
-   - :doc:`../../websites/website/pages/seo`
-
 Website availability
 --------------------
 
 A product can be set available on either *one* or *all* websites, but it is not possible to select
-*some* websites and not others. To define a product's availability, go to :menuselection:`Website
---> eCommerce --> Products`, select your product, and in the :guilabel:`Sales` tab, click the
-:guilabel:`Website` you wish the product to be available on. Leave the field empty for the products
-to be available on *all* websites.
+*some* websites and not others. To define a product's availability, go to the :ref:`product form
+<products/product-form>`, and in the :guilabel:`Sales` tab, click the :guilabel:`Website` you wish
+the product to be available on. Leave the field empty for the products to be available on
+*all* websites.
+
+.. _products/stock-management:
 
 Stock management
 ================
 
-Under the :menuselection:`Website --> Configuration --> Settings --> Shop - Products`, you can
-enable and configure inventory management options.
+Go to :menuselection:`Website --> Configuration --> Settings --> Shop - Products`, to enable and
+configure inventory management options.
 
 .. important::
-   To display the stock level on the product page, the :guilabel:`Product Type` on the **product's
-   form** must be set to :guilabel:`Storable` (only available when the **Inventory** app is
-   installed).
+   - The **Inventory** app must be installed to see the inventory management options.
+   - To display the stock level on your product page, the :guilabel:`Product Type` must be set to
+     :guilabel:`Storable` in the :ref:`product form <products/product-form>`.
 
 Inventory
 ---------
 
-In the :guilabel:`Inventory Defaults` sub-section, you can select the eCommerce selling strategy of
-products:
+In the :guilabel:`Inventory Defaults` sub-section, select your eCommerce selling strategy:
 
-- :guilabel:`Warehouse`: if you have multiple warehouses, you can define the warehouse associated to
-  your website. If you have multiple websites, you can select a different one per website;
-- :guilabel:`Out-of-Stock (Continue Selling)`: enabling it allows customers to continue placing
-  orders even when the product is **out-of-stock**.
-  Leave it  unchecked to **prevent orders**;
-- :guilabel:`Show Available Qty`: enabling it displays the available quantity left under a specified
-  threshold on the product page. The available quantity is calculated based on the 'On hand'
-  quantity minus the quantity already reserved for outgoing transfers.
+- :guilabel:`Out-of-Stock`: Tick the :guilabel:`Continue Selling` box to allows customers to
+  continue placing orders even when the product is **out-of-stock**. Leave it unchecked to
+  **prevent orders**;
+- :guilabel:`Show Available Qty`: Displays the available quantity left under a specified threshold
+  on the product page. The available quantity is calculated based on the 'On hand' quantity minus
+  the quantity already reserved for outgoing transfers.
 
-.. seealso::
-   :ref:`Allow only selected customers to buy <cart/prevent-sale>`
-
-Selling as kit
---------------
-
-If you are selling non-prepackaged kits (i.e., the kits are made of individual products), we
-recommend you read the related documentation to keep track of your stock.
-
-.. seealso::
-   :doc:`../../inventory_and_mrp/manufacturing/advanced_configuration/kit_shipping`
+.. _products/product-comparison:
 
 Product comparison
 ==================
 
-You can enable a **product comparison tool** for your eCommerce by going to
-:menuselection:`Website --> Configuration --> Settings --> Shop - Products`, and ticking
-:guilabel:`Product Comparison Tool`. This tool allows to save products' **specifications** and
-compare them against each other on a single page.
+Your visitors can compare products based on their attributes when the :guilabel:`Product Comparison
+Tool` is enabled. You can activate it by going to :menuselection:`Website --> Configuration -->
+Settings --> Shop - Products` section.
 
 On the product page, scroll down to the :guilabel:`Specifications` section and click
 :guilabel:`Compare`. Repeat the same process for all products you wish to compare. Then, click the
@@ -263,7 +313,7 @@ summary.
 
 .. note::
    The :guilabel:`Product Comparison Tool` can only be used if :doc:`attributes <products/variants>`
-   are set on the **product's template**.
+   are set on the :ref:`product form <products/product-form>`.
 
 .. image:: products/products-compare.png
    :align: center
