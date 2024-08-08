@@ -49,7 +49,7 @@ the right side of the header row to reveal a drop-down menu of additional column
 .. note::
    Alternatively, prices and delivery lead times for existing products can be added in bulk by
    going to :menuselection:`Purchase app --> Configuration --> Vendor Pricelists`. Click
-   :guilabel:`New` in the top-left corner. In the :guilablel:`Vendor` section of the pricelist form
+   :guilabel:`New` in the top-left corner. In the :guilabel:`Vendor` section of the pricelist form
    that appears, add the product information as it pertains to the vendor.
 
 Order products
